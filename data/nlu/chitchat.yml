@@ -830,3 +830,9 @@ nlu:
     - who am i
     - who are I ?
     - who may i ?
+- intent: faq
+  examples: |
+    - [integration with hello](company)
+- intent: nlu_fallback
+  examples: |
+    - hello???
