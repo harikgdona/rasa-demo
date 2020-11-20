@@ -3,7 +3,7 @@ pipeline:
 - name: WhitespaceTokenizer
 - name: RegexFeaturizer
 - name: LexicalSyntacticFeaturizer
-- name: CountVectorsFeaturizer
+- name: CountVectorsFeaturizerr
   OOV_token: oov
   token_pattern: (?u)\b\w+\b
 - name: CountVectorsFeaturizer
@@ -45,6 +45,5 @@ policies:
   name: AugmentedMemoizationPolicy
 - name: RulePolicy
   core_fallback_threshold: 0.3
-  core_fallback_action_name: "action_default_fallback"
-  enable_fallback_prediction: True
-
+  core_fallback_action_name: action_default_fallback
+  enable_fallback_prediction: true
