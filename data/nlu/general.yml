@@ -227,6 +227,8 @@ nlu:
     - cool beans
     - sounds good!
     - really
+    - go on then
+    - kinda
 - intent: react_positive
   examples: |
     - Cool
@@ -465,6 +467,7 @@ nlu:
     - stop it, i do not care!!!
     - none of them
     - I don't agree
+    - nevermind
 - intent: explain
   examples: |
     - can you elaborate
@@ -632,6 +635,7 @@ nlu:
     - yoo
     - ssup?
     - helleo
+    - hello.
 - intent: next_step
   examples: |
     - continue to next step
@@ -759,7 +763,7 @@ nlu:
     - i am stuck
     - i am stuck with error
     - I got stuck with the installation
-    - i m stuck while importing data 
+    - i m stuck while importing data
     - I am stuck with action
     - I am stuck with fallback
     - i  am stuck with an erorr
