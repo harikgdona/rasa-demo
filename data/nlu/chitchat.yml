@@ -334,6 +334,7 @@ nlu:
     - we cant converse in [french](language)?
     - can we converse in [french](language)?
     - Do you speak [italian](language)?
+    - I want to make a chatbot in [Arabic](language) language, is it possible?
 - intent: chitchat/ask_restaurant
   examples: |
     - Any good restaurants nearby?
