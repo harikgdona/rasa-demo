@@ -1,2 +1,2 @@
 action_endpoint:
-  url: http://localhost:5055/webhook
+  url: http://152.67.189.159:5055/webhook
