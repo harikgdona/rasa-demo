@@ -1,15 +1,320 @@
-version: '2.0'
+version: "2.0"
 nlu:
-  - intent: greet
-    examples: |
-      - hey
-      - hello
-      - hi
-      - good morning
-      - good evening
-  - intent: Supplier_Address_Change
-    examples: |
-      - Can you change vendor address
-      - I want to change vendor address
-      - Please change vendor address
-      - There is a change in vendor address
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - good morning
+    - good evening
+    - hey there
+- intent: affirm
+  examples: |
+    - yes
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+- intent: deny
+  examples: |
+    - no
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: Supplier_Address_Change
+  examples: |
+    - Can you change vendor address
+    - Please change vendor address
+    - Vendor address change please
+    - Can you change address of the vendor
+    - Change the Vendor address
+    - Can vendor address be changed
+    - I want to change vendor address
+    - I need to change vendor address
+    - vendor address needs to be changed
+    - vendor address changes required
+    - Address change of the vendor please
+    - There is a change in vendor address
+    - Vendor address is changed, please note
+    - Address of the vendor is changed.Please note
+    - Please note the change in Vendor Address
+- intent: Wrong_POVendor_Error
+  examples: |
+    - Purchasing document belongs to another supplier
+    - Purchasing document is invalid for this supplier
+    - Another supplier purchasing document selected, please change
+    - Supplier is different for this purchasing document
+    - No Purchasing document available for this supplier
+    - Purchasing document no longer available
+    - Vendor is different for this Purchasing document.
+- intent: Wrong_POcurrency_Error
+  examples: |
+    - Purchasing document has a different currency key
+    - Currency key of the purchasing document different
+    - Purchasing document and currency key are not in sync
+    - Different currency key used for this Purchasing Document
+    - Wrong currency key used for this purchasing document
+    - Currency Key used in purchsing document is invalid.
+- intent: J_1IG_INV_Error
+  examples: |
+    - Unable to Post Inbound Invoice
+    - Inbound Invoice can not be posted
+    - Not able to post Inbound Invoice
+    - Difficulty in posting Inbound Invoice
+    - Problem while posting Inbound Invoice
+    - Inbound Invoice posting can not be done
+    - Postng of  Inbound Invoice is not possible
+    - Unable to Post Inbound Invoice through T Code - J_1IG_INV
+    - Inbound Invoice through T Code - J_1IG_INV cannot be posted
+    - Inbound Invoice cannot be posted through T Code - J_1IG_INV
+    - Difficulty in posting Inbound Invoice through T Code -J_1IG_INV
+    - Inbound Invoice is not posted
+    - Posting of Inbound Invoice is not done
+    - Error while posting Inbound Invoice
+    - Posting of Inbound Invoice got error
+    - Inbound Invoice got error while posting
+    - Invoice Inbound posting got error
+    - Not able to find line item for posting Inbound Invoice
+    - line item for posting Inbound Invoice is not found
+    - Inbound invoice posting could not find line item
+- intent: Result_recording_Stock_Posting_Error
+  examples: |
+    - I am not able to find the Inspection lot in  QE51N
+    - Inspection lot in QE51N cannot be found
+    - In QE51N Inspection lot is not found
+    - No Inspection lot in QE51N
+    - Inspection lot in QE51N is not visible by me.
+    - QE51N inspection lot has issue.Not visible
+    - Inspection lot in QE51N has issues.
+    - Inspection lot in QVM2 is not found
+    - In QVM2 inspection lot not found
+    - I am not able to find the inspection lot in QVM2
+    - Not able to perform results recording work list in SAP inspection lot in QVM2
+    - Results recording work list in SAP inspection lot in QVM2 cannot be performed
+- intent: Inspection_lot_Stock_Posting_CRTD_error
+  examples: |
+    - The inspection lot is in CRTD status
+    - CRTD status found for the inspection lot
+    - Status found for the inspection lot is in CRTD status
+    - I am not able to Release the inspection lot in QA11 CRTD status
+    - Inspection lot in QA11 CRTD status cannot be released
+    - CRTD status is shown for the Inspection lot
+    - The Inspection lot is showing CRTD status
+    - Not able to perform Usage decision in SAP CRTD status
+    - Usage decision in SAP CRTD status cannot be performed
+    - In SAP CRTD status, not able to perform Usage decision
+- intent: PostingPeriod_Error
+  examples: |
+    - Period XX/XXXX is not open for Account Type A and GL XXXXXX
+    - Period XX/XXXX is Closed for Account Type A and GL XXXXXX
+    - For Account Type A and GL XXXXXX , Period XX/XXXX is not open
+    - Unable do payment due to Posting Period does not open for Account Type A and GL XXXXXX
+    - Payment not done due to Posting Period does not open for Account Type A and GL XXXXXX
+    - Unable do payment due to closed Posting Period for Account Type A and GL XXXXXX
+    - Posting Period not open for Account Type A and GL XXXXXX to make the payment
+    - Posting Period not open for Account Type A and GL XXXXXX to make posting to asset
+    - Unable to posting to Asset due to closed Posting Period for Account Type A and GL XXXXXX
+    - Account Type A and GL XXXXXX has closed posting period to do posting to Asset
+    - Unable to posting to Asset due to Posting Period not open for Account Type A and GL XXXXXX
+- intent: PO_NotRelease_Error
+  examples: |
+    - Purchasing document not yet released
+    - Purchasing document release delayed
+    - Purchasing document not yet released and visible
+    - Release of PO is postponed and not visible
+    - Purchasing document not yet created
+    - Creation of PO delayed
+- intent: Wrong_POLineItem_Error
+  examples: |
+    - Item XXXXXof purchasing document XXXXXXXXXX does not exist
+    - Purchasing document XXXXXXXXXX does not have Item XXXXX
+    - Formatting error in the field BSEG – GSBER: see next message fill in all required entry fields
+    - Advance payment posting error because Formatting error in the field BSEG – GSBER: see next message fill in all required entry fields
+    - Formatting error in BSEG_GSBER.Instructions from next message to be followed.
+    - Item XXXXX not yet created for the Purchasing document XXXXXXXXXX
+    - PO line item not available forthe purchasing document XXXXXXXXXX
+- intent: POLineItem_Deletion_Error
+  examples: |
+    - Item XXXXX for purchasing document XXXXXXXXXX has deletion indicator L or marked for deletion
+    - Purchasing document XXXXXXXXXX ,Line Item XXXXX  has deletion indicator L or marked for deletion
+    - Deletion indicator L (Or marked for deletion ) is set to Item XXXXX for purchasing document XXXXXXXXXX
+    - Deletion indicator is present for purchasing document XXXXXXXXXX.
+    - Purchasing document XXXXXXXXXX has indicator preventing deletion.
+    - Item XXXX in PO marked for deletion.
+    - Item XXXXX for purchasing document XXXXXXXXXX has L which is a deletion indicator.
+- intent: ProfitCenter_Validity_Error
+  examples: |
+    - Profit Center XXXXXXX does not exist as for MM.DD.YYYY
+    - No Profit Center XXXXXXX for MM.DD.YYYY
+    - Fvor MM.DD.YYYY, Profit Center XXXXXXX does not exist
+    - Advance payment posting error because Profit Center XXXXXXX does not exist as for MM.DD.YYYY
+    - Profit Center XXXXXXX does not exist as for MM.DD.YYYY causing advance payment posting error
+    - Advance payment posting error because Profit Center does not exist.
+    - ProfitCenter Validity expired.Throwing errors.
+    - Profit Center XXXXXXXXXX does not exist on XX.XX.XXXX
+    - Profit Center XXXXXXXXXX validity expired before XX.XX.XXXX
+    - As on XX.XX.XXXX Profit Center XXXXXXXXXX does not exist
+    - Unable to post MIRO Document due Profit Center is not valid as on date
+    - Profit Center is not valid as on date, so MIRO document can not be posted.
+    - MIRO Document can not be posted due to invalid Profit Center as on date
+- intent: Wrong_DownPayment_Amount_Error
+  examples: |
+    - Down Payment Amount is greater than Purchase Order Amount
+    - Purchase Order Amount is less than the Down Payment Amount
+    - Advance payment posting error because Down Payment Amount is greater than Purchase Order Amount
+    - Advance payment posting error because Purchase Order Amount is less than the Down Payment Amount
+    - Advance payment posting error due to mismatch in  Down Payment Amount and  Purchase Order Amount
+    - Wrong Down payment entered throwing the error
+    - No relation found between Down payment and Advance payment.
+- intent: Wrong_PO_AccountAssignment_Error
+  examples: |
+    - Item XXXXX of Purchasing Document XXXXXXXXXX contains no suitable account assignment
+    - No suitable account assignment found for Item XXXXX of Purchasing Document XXXXXXXXXX
+    - Advance payment posting error because Item XXXXX of Purchasing Document XXXXXXXXXX contains no suitable account assignment
+    - Suitable account assignments are not present in PO document.
+    - Item XXXXX of Purchasing Document XXXXXXXXXX missing account assignments
+    - Account assignment and PO are not in sync
+    - PO document and account assignment are differing due to wrong account assignment.
+- intent: Segment_Missing_Error
+  examples: |
+    - Balancing field Segment XXX is missing at line item
+    - At line item Balancing field Segment XXX is not found
+    - Segment is missing in line item while posting MIRO Posting
+    - MIRO Posting having line item with missing segment.
+    - Line Items missing at segment XXX
+    - Missing segments at line item level
+    - Segments missing while balancing.
+- intent: GoodsReceipt_PO_SES_Error
+  examples: |
+    - Error during GRN : Getting error No goods receipt possible for purchase order 4** for Service PO
+    - I am not able to perform Goods receipt Service PO
+    - Getting error in MIGO that No goods receipt Service PO possible for purchase order 4**
+    - MIGO error goods receipt service PO not possible for 4**
+    - No goods receipt created for PO 4** due to error
+    - I am not able to perform Goods receipt Service PO as getting error while using MIGO
+    - No goods receipt created for service PO
+- intent: MaterialMovement_309Movement_Error
+  examples: |
+    - Error during 309 transfer posting : Transfer not allowed. Please contact Commercial team
+    - I am not able to perform Material to Material transfer Commercial team
+    - Getting error in MB1B Commercial team
+    - MB1B error while creating material movement.Please conatct commercial team
+    - Material movement is not possible due to 309 transfer posting.
+    - Please contact commercial team if error comes during the 309 transfer posting.
+- intent: ServiceEntrySheet_accountcoding_Error
+  examples: |
+    - Error during Service entry sheet : Error in account coding allocation
+    - I am facing error during Service entry sheet
+    - Getting error in ML81N Service entry sheet
+    - Getting error in ML81N that Error in account coding allocation Service entry sheet
+    - facing issue with service entry sheet
+    - Error occurred in service entry sheet
+    - Need a solution for service entry sheet error
+    - please look at account coding error
+- intent: SalesOrder_Listing_Error
+  examples: |
+    - Error occurred in sales order listing
+    - facing issue with sales order listing
+    - sales order listing error is occurred
+    - I'am getting error at sales order listing
+    - sales order listing error is faced
+    - Unable to process sales order listing
+    - I'am facing an issue with sales order listing
+- intent: SalesOrder_MRP_Report
+  examples: |
+    - Not able to check the Batch MRP
+    - MRP Changes report
+    - need to check mrp report
+    - can we look at sales order mrp report
+    - please check sales mrp report
+    - I need sales order mrp report
+    - sales order mrp report please
+- intent: SalesOrder_L&D_Report
+  examples: |
+    - Unable to get L and D order details
+    - Getting Data Dump of L and D orders executed on Date
+    - need l and d sales order report
+    - I want sales order l and d report status
+    - please look at sales order L&D report process
+    - can I get the information on L&D sales order report
+    - L&D sales order report please
+    - I need sales order l and d report status
+    - I want sales order L and D report
+    - I want sales order l and d report
+- intent: OutboundDelivery_Stock_Error
+  examples: |
+    - outbound delivery stock error is occurred
+    - facing an issue with outbound delivery stock
+    - error occurred at outbound delivery stock
+    - I'am facing outbound delivery stock error
+    - outbound stock delivery error is occurred
+    - error occurred while performing outbound stock delivery
+    - I need details about outbound delivery stock error
+    - I want a solution for outbound delivery stock error
+- intent: OutboundDelivery_PGR_Error
+  examples: |
+    - Unable to reverse PGI
+    - PGI reverse is not occrring
+    - How can I reverse PGI
+    - unable to perform PGR
+    - I'am facing an issue with PGR
+    - outbound delivery pgr error is occurred
+    - outbound delivery PGR error is occurred
+    - PGR error is occurred
+    - outbound delivery pgr issue is occurred
+    - I need a solution for PGR error
+    - Please look at outbound PGR error
+    - Please look at outbound pgr error
+- intent: DeliveryList_Report
+  examples: |
+    - Checking Delivery List Report
+    - Please check my delivery list report
+    - I need delivery list report
+    - Please provide delivery list report
+    - delivery list report please
+    - Can you please check delivery list report
+    - I want delivery list report
+    - Can I get a report on delivery list
+    - facing an issue with delivery list report
+- intent: Invoice_Cancellation_Error
+  examples: |
+    - Invoice cancellation error is occurred
+    - I'am facing an issue with invoice cancellation
+    - please look at invoice cancellation error
+    - No billing document were generated in VF11
+    - No billing document were generated in vf11
+    - In VF11 none of the billing documents were genarated
+    - I'am unablr to generate the billing documents in vf11
+    - I'am unablr to generate the billing documents in VF11
+    - I'am getting invoice cancellation error
+    - I need details about invoice cacellation error
+- intent: Invoice_MissingValue
+  examples: |
+    - missing a value in invoice
+    - I'am missing a value in invoice
+    - Please check the missing value in invoice
+    - I need to check the missing value in invoice
+    - I want to know which value is missing in invoice
+    - A value is missed in invoice
+    - one value is missed in the invoice
+    - Please check the missed value in invoice
+    - I need to review the missing values in invoice
+    - Need a solution for missing values in invoice
+    - I want to know which values in the invoice are missed
+- intent: Invoice_PREGST_Print
+  examples: |
+    - I need Invoice pregst print
+    - I need Invoice PRE GST print
+    - I want pregst invoice print
+    - I want PRE GST invoice print
+    - Please check the print of pregst invoice
+    - PREGST invoice print please
+    - Please provide the print of PREGST invoice
